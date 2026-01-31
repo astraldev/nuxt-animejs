@@ -1,11 +1,11 @@
 import { createAnimatable } from 'animejs/animatable'
-import { useMounted, type MaybeElementRef } from '@vueuse/core'
+import { tryOnScopeDispose, useMounted } from '@vueuse/core'
 import { shallowReactive, toValue, watchEffect, type MaybeRefOrGetter } from '#imports'
 import { normalizeAnimeTarget } from '../utils/normalize-targets'
-import type { TargetsParam, AnimatableParams } from 'animejs'
+import type { AnimatableParams } from 'animejs'
 
 export function useAnimatable(
-  target: TargetsParam | MaybeElementRef,
+  target: Parameters<typeof normalizeAnimeTarget>[0],
   options?: MaybeRefOrGetter<AnimatableParams>,
 ) {
   const mounted = useMounted()
@@ -13,9 +13,13 @@ export function useAnimatable(
 
   watchEffect(() => {
     if (!mounted.value) return
-    const targets = normalizeAnimeTarget(toValue(target))
+    const targets = normalizeAnimeTarget(target)
     const newAnimatable = createAnimatable(targets, toValue(options) || {})
     Object.assign(animatable, newAnimatable)
+  })
+
+  tryOnScopeDispose(() => {
+    animatable.revert()
   })
 
   return animatable

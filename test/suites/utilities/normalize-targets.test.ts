@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { describe, it, expect } from 'vitest'
 import TargetTemplates from './target-templates.vue'
-import { normalizeAnimeTarget, normalizeWaapiAnimeTarget } from '../../../src/runtime/app/utils/normalize-targets'
+import { normalizeAnimeTarget, normalizeWaapiAnimeTarget, normalizeLayoutTarget } from '../../../src/runtime/app/utils/normalize-targets'
 
 describe('normalize-targets', async () => {
   const wrapper = await mountSuspended(TargetTemplates)
@@ -74,6 +74,35 @@ describe('normalize-targets', async () => {
     it('should return null when the target is null or undefined', () => {
       expect(normalizeWaapiAnimeTarget(null as any)).toBeNull()
       expect(normalizeWaapiAnimeTarget(undefined as any)).toBeNull()
+    })
+  })
+
+  describe('normalizeLayoutTarget (Layout)', () => {
+    it('should return the element directly when passed an HTMLElement', () => {
+      expect(normalizeLayoutTarget(singleElement)).toBe(singleElement)
+    })
+
+    it('should resolve the root element when passed a Vue Component instance', () => {
+      expect(normalizeLayoutTarget(wrapper.vm)).toBe(wrapper.element)
+    })
+
+    it('should return the selector string unmodified', () => {
+      expect(normalizeLayoutTarget('.single-target')).toBe('.single-target')
+    })
+
+    it('should resolve a Template Ref to its corresponding DOM element', () => {
+      if (!vm.sTarget) return
+      expect(normalizeLayoutTarget(vm.sTarget)).toBe(singleElement)
+    })
+
+    it('should resolve a Reactive Ref to its value', () => {
+      const elementRef = ref(singleElement)
+      expect(normalizeLayoutTarget(elementRef)).toBe(singleElement)
+    })
+
+    it('should throw error when passed null/undefined (runtime behavior)', () => {
+      expect(() => normalizeLayoutTarget(null as any)).toThrow()
+      expect(() => normalizeLayoutTarget(undefined as any)).toThrow()
     })
   })
 })

@@ -1,5 +1,10 @@
 import { defineNuxtPlugin } from '#app'
+import * as utils from 'animejs/utils'
 
 export default defineNuxtPlugin((_nuxtApp) => {
-  console.log('Plugin injected by my-module!')
+  return {
+    provide: {
+      animejs: { utils },
+    },
+  }
 })

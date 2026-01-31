@@ -1,6 +1,6 @@
 import { toValue, type MaybeRef } from '#imports'
 import type { MaybeElementRef, VueInstance } from '@vueuse/core'
-import type { TargetsParam, DOMTargetsParam } from 'animejs'
+import type { TargetsParam, DOMTargetsParam, DOMTargetSelector } from 'animejs'
 
 function isVueInstance(value: unknown): value is VueInstance {
   return value !== null && typeof value === 'object' && '$el' in value
@@ -22,13 +22,14 @@ export function normalizeWaapiAnimeTarget(target: WaapiTargets): DOMTargetsParam
       .map(t => normalizeWaapiAnimeTarget(t as WaapiTargets))
       .filter((t): t is DOMTargetsParam => t !== null)
       .flat()
-    return targets.length ? (targets as DOMTargetsParam) : null
+    return targets.length ? targets : null
   }
 
-  return resolved as DOMTargetsParam
+  return resolved
 }
 
-export function normalizeAnimeTarget(target: TargetsParam | MaybeElementRef | MaybeElementRef[]): TargetsParam {
+type AnimeTargets = TargetsParam | MaybeElementRef | MaybeElementRef[]
+export function normalizeAnimeTarget(target: AnimeTargets): TargetsParam {
   const resolved = toValue(target)
 
   if (!resolved) return []
@@ -43,8 +44,22 @@ export function normalizeAnimeTarget(target: TargetsParam | MaybeElementRef | Ma
       .filter(t => t !== null && (Array.isArray(t) ? t.length > 0 : true))
       .flat()
 
-    return targets as TargetsParam
+    return targets
   }
 
-  return resolved as TargetsParam
-};
+  return resolved
+}
+
+type AnimeLayoutTargets = DOMTargetSelector | MaybeElementRef<HTMLElement | VueInstance>
+export function normalizeLayoutTarget(target: AnimeLayoutTargets): DOMTargetSelector {
+  const resolved = toValue(target)
+
+  if (isVueInstance(resolved)) {
+    return resolved.$el as HTMLElement | SVGElement
+  }
+
+  if (!target)
+    throw new Error('AnimeLayoutTargets cannot be null or undefined')
+
+  return resolved
+}

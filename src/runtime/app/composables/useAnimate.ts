@@ -1,22 +1,27 @@
-import { useMounted, type MaybeElementRef } from '@vueuse/core'
-import { shallowReactive, toValue, watchEffect, type MaybeRefOrGetter } from '#imports'
+import { toReactive, tryOnScopeDispose, useMounted } from '@vueuse/core'
+import { shallowRef, toValue, watchEffect, type MaybeRefOrGetter } from '#imports'
 import { normalizeAnimeTarget } from '../utils/normalize-targets'
-import type { TargetsParam, AnimationParams } from 'animejs'
+import type { AnimationParams } from 'animejs'
 import { animate } from 'animejs/animation'
 
 export function useAnimate(
-  target: TargetsParam | MaybeElementRef,
+  target: Parameters<typeof normalizeAnimeTarget>[0],
   options?: MaybeRefOrGetter<AnimationParams>,
 ) {
   const mounted = useMounted()
-  const animation = shallowReactive(animate({}, {}))
+  const animation = shallowRef(animate({}, {}))
 
   watchEffect(() => {
     if (!mounted.value) return
-    const targets = normalizeAnimeTarget(toValue(target))
+    if (animation.value) animation.value.revert()
+    const targets = normalizeAnimeTarget(target)
     const newAnimation = animate(targets, toValue(options) || {})
-    Object.assign(animation, newAnimation)
+    animation.value = newAnimation
   })
 
-  return animation
+  tryOnScopeDispose(() => {
+    animation.value?.revert()
+  })
+
+  return toReactive(animation)
 }

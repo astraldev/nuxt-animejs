@@ -28,7 +28,10 @@ export default defineNuxtModule<ModuleOptions>({
         // This runs before environment setup
         config.optimizeDeps ||= {}
         config.optimizeDeps.include ||= []
-        config.optimizeDeps.include.push('animejs', 'animejs/animatable')
+        config.optimizeDeps.include.push(
+          'animejs', 'animejs/animatable',
+          '@vueuse/core', 'animejs/animation',
+        )
       },
     }))
 

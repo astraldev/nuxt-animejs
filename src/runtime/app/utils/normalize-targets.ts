@@ -7,7 +7,7 @@ function isVueInstance(value: unknown): value is VueInstance {
 }
 
 type WaapiElementTargets = VueInstance | HTMLElement | SVGElement | NodeList | string | null
-type WaapiTargets = WaapiElementTargets | WaapiElementTargets[] | MaybeRef<WaapiElementTargets> | MaybeRef<WaapiElementTargets>[]
+type WaapiTargets = MaybeRef<WaapiElementTargets> | MaybeRef<WaapiElementTargets>[]
 export function normalizeWaapiAnimeTarget(target: WaapiTargets): DOMTargetsParam | null {
   const resolved = toValue(target)
 

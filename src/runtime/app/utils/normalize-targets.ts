@@ -6,7 +6,7 @@ function isVueInstance(value: unknown): value is VueInstance {
   return value !== null && typeof value === 'object' && '$el' in value
 }
 
-type WaapiElementTargets = VueInstance | HTMLElement | SVGElement | NodeList | string | null
+type WaapiElementTargets = VueInstance | HTMLElement | HTMLElement[] | SVGElement | SVGElement[] | NodeList | string | null
 type WaapiTargets = MaybeRef<WaapiElementTargets> | MaybeRef<WaapiElementTargets>[]
 export function normalizeWaapiAnimeTarget(target: WaapiTargets): DOMTargetsParam | null {
   const resolved = toValue(target)

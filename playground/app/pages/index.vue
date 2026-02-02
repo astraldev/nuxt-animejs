@@ -2,10 +2,10 @@
   <div class="p-8 max-w-4xl mx-auto space-y-8 my-auto">
     <div class="space-y-4">
       <h2 class="text-3xl font-bold text-white">
-        Welcome to the Playground
+        Playground
       </h2>
       <p class="text-gray-400">
-        Explore demos
+        Available demos
       </p>
     </div>
 
@@ -13,25 +13,31 @@
       <PDemoCard
         to="/composables/use-animate"
         title="useAnimate Demo"
-        description="Explore the useAnimate composable with stagger effects and timeline animations."
+        description="animate() examples"
       />
 
       <PDemoCard
         to="/transitions/slide-transition"
         title="Slide Transition"
-        description="Interactive demos of slide transitions with useWaapi, modes, and group transitions."
+        description="Interactive demos for slide transition"
       />
 
       <PDemoCard
         to="/composables/use-animatable"
         title="useAnimatable Demo"
-        description="Interactive examples with mouse interaction and property mixing."
+        description="useAnimatable examples"
       />
 
       <PDemoCard
         to="/composables/use-split-text"
         title="useSplitText Demo"
-        description="Demonstration of text splitting into lines, words, and chars with animation."
+        description="Text split examples"
+      />
+
+      <PDemoCard
+        to="/composables/use-waapi-animate"
+        title="useWaapiAnimate Demo"
+        description="Native Web Animations API"
       />
     </nav>
   </div>

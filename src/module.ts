@@ -1,4 +1,4 @@
-import { defineNuxtModule, addPlugin, createResolver, addImportsDir, addComponentsDir, addVitePlugin } from '@nuxt/kit'
+import { defineNuxtModule, createResolver, addImportsDir, addComponentsDir, addVitePlugin } from '@nuxt/kit'
 
 export interface ModuleOptions {
   /** Add composables for animejs */
@@ -57,8 +57,6 @@ export default defineNuxtModule<ModuleOptions>({
 
     _nuxt.options.alias[`#${__configKey}`] = resolver.resolve('./runtime/app/composables')
     _nuxt.options.alias[`#${__configKey}/components`] = resolver.resolve('./runtime/app/components')
-
-    // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
-    addPlugin(resolver.resolve('./runtime/plugin'))
+    _nuxt.options.alias[`#${__configKey}/utils`] = resolver.resolve('./runtime/app/utils/index')
   },
 })

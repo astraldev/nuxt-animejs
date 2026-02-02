@@ -1,5 +1,6 @@
 export default defineNuxtConfig({
   extends: ['docus'],
+  modules: ['../src/module'],
   devServer: {
     port: 3001,
   },

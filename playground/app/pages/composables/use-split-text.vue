@@ -53,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-const { $anime } = useNuxtApp()
+import { stagger } from '#nanime/utils'
 
 // --- Section 1: Character Animation ---
 const { chars: charChars } = useSplitText(
@@ -70,7 +70,7 @@ useAnimate(charChars, {
     from: '-1turn',
     duration: 600,
   },
-  delay: $anime.utils.stagger(100),
+  delay: stagger(100),
   ease: 'inOutCirc',
   loopDelay: 1000,
   loop: true,
@@ -95,7 +95,7 @@ useAnimate(words, {
     { to: '#61C3FF', duration: 500 },
     { to: '#ffffff', duration: 500 },
   ],
-  delay: $anime.utils.stagger(150),
+  delay: stagger(150),
   ease: 'outBack',
   loop: true,
   loopDelay: 500,
@@ -111,7 +111,7 @@ useAnimate(lines, {
   x: [-100, 0],
   opacity: [0, 1],
   duration: 800,
-  delay: $anime.utils.stagger(200),
+  delay: stagger(200),
   ease: 'outExpo',
   loop: true,
   loopDelay: 2000,

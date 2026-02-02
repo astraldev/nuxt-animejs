@@ -50,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-const { $anime } = useNuxtApp()
+import { stagger, mapRange } from '#nanime/utils'
 
 // --- Section 1: Mouse Follow ---
 const particleContainer = useTemplateRef('particleContainer')
@@ -60,14 +60,14 @@ const particleCount = gridSize * gridSize
 
 const particleAnimatable = useAnimatable(particles, {
   x: {
-    duration: $anime.utils.stagger(250, {
+    duration: stagger(250, {
       ease: 'in(1)',
       from: 'center',
       grid: [gridSize, gridSize],
     }),
   },
   y: {
-    duration: $anime.utils.stagger(250, {
+    duration: stagger(250, {
       ease: 'in(1)',
       from: 'center',
       grid: [gridSize, gridSize],
@@ -94,8 +94,8 @@ watchEffect(() => {
   const hw = w / 2
   const hh = h / 2
 
-  const mappedX = $anime.utils.mapRange(x, 0, w, -hw, hw)
-  const mappedY = $anime.utils.mapRange(y, 0, h, -hh, hh)
+  const mappedX = mapRange(x, 0, w, -hw, hw)
+  const mappedY = mapRange(y, 0, h, -hh, hh)
 
   particleAnimatable.x?.(mappedX)
   particleAnimatable.y?.(mappedY)

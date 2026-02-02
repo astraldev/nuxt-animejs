@@ -59,8 +59,7 @@
 
 <script setup lang="ts">
 import type { AnimationParams } from 'animejs'
-
-const { $anime } = useNuxtApp()
+import { stagger, random } from '#nanime/utils'
 
 // --- Section 1 ---
 const box1 = useTemplateRef('box1')
@@ -85,9 +84,9 @@ useAnimate(staggerBox, {
     { to: '0 0 1rem 0 currentColor' },
     { to: '0 0 0rem 0 currentColor' },
   ],
-  delay: $anime.utils.stagger(100, {
+  delay: stagger(100, {
     grid: [5, 6],
-    from: $anime.utils.random(0, 5 * 6),
+    from: random(0, 5 * 6),
   }),
   loop: true,
   alternate: true,

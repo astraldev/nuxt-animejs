@@ -1,5 +1,32 @@
 # Changelog
 
+## v0.0.5
+
+[compare changes](https://github.com/astraldev/nanime/compare/v0.0.4...v0.0.5)
+
+### 🚀 Enhancements
+
+- **useDraggable:** Implement useDraggable composable and include documentation ([ed098af](https://github.com/astraldev/nanime/commit/ed098af))
+
+### 🩹 Fixes
+
+- Resolve import path issue; remove module logs ([bc679bb](https://github.com/astraldev/nanime/commit/bc679bb))
+
+### 📖 Documentation
+
+- Update documentation layout for better readability ([cfa0019](https://github.com/astraldev/nanime/commit/cfa0019))
+- **useDraggable:** Update demo example ([453a1f6](https://github.com/astraldev/nanime/commit/453a1f6))
+- **useDraggable:** Update doc format and example for better rendering ([36a685b](https://github.com/astraldev/nanime/commit/36a685b))
+
+### 🏡 Chore
+
+- Fix repository def in pkgjson ([1009af2](https://github.com/astraldev/nanime/commit/1009af2))
+- Code lint + fix eslint violations ([bdce932](https://github.com/astraldev/nanime/commit/bdce932))
+
+### ❤️ Contributors
+
+- Ekure Edem ([@astraldev](https://github.com/astraldev))
+
 ## v0.0.4
 
 [compare changes](https://github.com/astraldev/nanime/compare/v0.0.2...v0.0.4)

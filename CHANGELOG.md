@@ -1,5 +1,39 @@
 # Changelog
 
+## v0.0.4
+
+[compare changes](https://github.com/astraldev/nanime/compare/v0.0.2...v0.0.4)
+
+### 🩹 Fixes
+
+- **imports:** Remove plugin for `$anime` in favour of `#nanime/utils` import path ([3a7eb27](https://github.com/astraldev/nanime/commit/3a7eb27))
+- **imports:** Resolve #nanime/utils import issue ([bd38590](https://github.com/astraldev/nanime/commit/bd38590))
+
+### 📖 Documentation
+
+- Update project name from nuxt-anime to nanime ([4206cae](https://github.com/astraldev/nanime/commit/4206cae))
+- Update documentation index page ([f92a038](https://github.com/astraldev/nanime/commit/f92a038))
+- Improve documentation pages config ([8a3d9b6](https://github.com/astraldev/nanime/commit/8a3d9b6))
+- Use AI to scaffold documentation structure and initial texts ([0c9089f](https://github.com/astraldev/nanime/commit/0c9089f))
+- Update page info for composables + extra skills ([6bb8cec](https://github.com/astraldev/nanime/commit/6bb8cec))
+- Update documentation pages with working examples ([ff433a3](https://github.com/astraldev/nanime/commit/ff433a3))
+- Add nanime to package deps for docs ([78b87e1](https://github.com/astraldev/nanime/commit/78b87e1))
+- Update import path definitions ([ed7cbfb](https://github.com/astraldev/nanime/commit/ed7cbfb))
+- Add renderer component for codeblocks, update import path for anime utils ([2a56541](https://github.com/astraldev/nanime/commit/2a56541))
+
+### 🏡 Chore
+
+- Update hero animation ([3d49f78](https://github.com/astraldev/nanime/commit/3d49f78))
+- **release:** V0.0.3 ([977f73b](https://github.com/astraldev/nanime/commit/977f73b))
+
+### 🤖 CI
+
+- Add release build for nanime ([1360b4f](https://github.com/astraldev/nanime/commit/1360b4f))
+
+### ❤️ Contributors
+
+- Ekure Edem ([@astraldev](https://github.com/astraldev))
+
 ## v0.0.3
 
 [compare changes](https://github.com/astraldev/nanime/compare/v0.0.2...v0.0.3)

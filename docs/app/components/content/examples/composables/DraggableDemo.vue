@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import ExampleWrapper from '~/components/shared/ExampleWrapper.vue'
 
-const container = useTemplateRef<HTMLElement>('container')
-const draggable = useTemplateRef<HTMLElement>('draggable')
+const container = useTemplateRef('container')
+const draggable = useTemplateRef('draggable')
 
 useDraggable(draggable, {
   container: container,
@@ -21,7 +21,7 @@ useDraggable(draggable, {
   <ExampleWrapper>
     <div
       ref="container"
-      class="relative border border-primary/20 rounded-md border-dashed h-10"
+      class="relative border border-primary/20 rounded-md border-dashed h-12"
     >
       <div class="snap-positions">
         <div
@@ -45,7 +45,7 @@ useDraggable(draggable, {
       </div>
       <div
         ref="draggable"
-        class="simple-box w-12"
+        class="simple-box w-12 h-10!"
       />
     </div>
   </ExampleWrapper>

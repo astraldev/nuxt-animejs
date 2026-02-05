@@ -4,13 +4,14 @@
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
+[![release nanime][release-src]][release-href]
 
 This module provides a set of SSR safe composables and components to make it easier
 to use [AnimeJS](https://animejs.com/) in your Nuxt application.
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
+- [📖 &nbsp;Documentation](https://nanimejs.netlify.app)
 <!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/my-module?file=playground%2Fapp.vue) -->
-<!-- - [📖 &nbsp;Documentation](https://example.com) -->
 
 ## Features
 
@@ -81,14 +82,17 @@ That's it! You can now use the module in your application
 
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/my-module/latest.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-version-href]: https://npmjs.com/package/my-module
+[npm-version-src]: https://img.shields.io/npm/v/nanime/latest.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-version-href]: https://npmjs.com/package/nanime
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/my-module.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-downloads-href]: https://npm.chart.dev/my-module
+[npm-downloads-src]: https://img.shields.io/npm/dm/nanime.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-downloads-href]: https://npm.chart.dev/nanime
 
-[license-src]: https://img.shields.io/npm/l/my-module.svg?style=flat&colorA=020420&colorB=00DC82
-[license-href]: https://npmjs.com/package/my-module
+[license-src]: https://img.shields.io/npm/l/nanime.svg?style=flat&colorA=020420&colorB=00DC82
+[license-href]: https://npmjs.com/package/nanime
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt
 [nuxt-href]: https://nuxt.com
+
+[release-src]: https://github.com/astraldev/nanime/actions/workflows/npm-publish.yml/badge.svg
+[release-href]: https://github.com/astraldev/nanime/actions/workflows/npm-publish.yml

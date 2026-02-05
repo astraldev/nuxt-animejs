@@ -12,7 +12,7 @@
 }
 
 .spot {
-  @apply py-1 w-12 px-1.5 z-10 grid place-items-center text-white;
+  @apply py-1 w-12 px-1.5 z-10 grid place-items-center;
   @apply border border-dashed border-primary/35 rounded font-bold font-mono;
 
   background-image: repeating-linear-gradient(

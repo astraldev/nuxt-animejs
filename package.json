@@ -33,7 +33,6 @@
     "docs"
   ],
   "scripts": {
-    "postinstall": "lefthook install",
     "prepack": "nuxt-module-build build",
     "dev": "npm run dev:prepare && nuxt dev playground",
     "dev:build": "nuxt build playground",

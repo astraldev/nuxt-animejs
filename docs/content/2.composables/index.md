@@ -23,7 +23,7 @@ navigation:
   Wrapper for the [createAnimatable]{.text-primary} function
   :::
 
-  :::u-page-card{to="/composables/use-split-text" icon="i-flowbite-text-size-outline" title="useSplitText"}
+  :::u-page-card{to="/composables/use-split-text" icon="i-ph-text-t" title="useSplitText"}
   #description
   Wrapper for the [splitText]{.text-primary} utility
   :::
@@ -31,5 +31,10 @@ navigation:
   :::u-page-card{to="/composables/use-layout" icon="i-ph-layout" title="useLayout"}
   #description
   Wrapper for the [createLayout]{.text-primary} function
+  :::
+
+  :::u-page-card{to="/composables/use-draggable" icon="i-ph-hand-grabbing" title="useDraggable"}
+  #description
+  Wrapper for the [createDraggable]{.text-primary} function
   :::
 ::

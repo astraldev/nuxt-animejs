@@ -22,6 +22,9 @@
       ]
     }
   },
+  "publishConfig": {
+    "provenance": true
+  },
   "files": [
     "dist"
   ],

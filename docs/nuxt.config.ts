@@ -1,13 +1,10 @@
 export default defineNuxtConfig({
   extends: ['docus'],
   modules: process.env.NODE_ENV === 'development' ? ['../src/module'] : ['nanime'],
-  components: [
-    {
-      path: 'app/components',
-      pathPrefix: false,
-      global: true,
-    },
-  ],
+  components: {
+    global: true,
+    dirs: ['~/components'],
+  },
   css: ['./app/assets/css/main.css'],
   site: {
     name: 'nanime',

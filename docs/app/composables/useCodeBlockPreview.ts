@@ -88,7 +88,7 @@ export const useCodeBlockPreview = async (src: string) => {
   }
 
   let finalScript = script
-  let finalTemplate = template
+  let finalTemplate = `<template>${template}</template>`
   let finalStyle = style
 
   finalScript = await format(script, {
@@ -100,7 +100,7 @@ export const useCodeBlockPreview = async (src: string) => {
     return ''
   })
 
-  finalTemplate = await format(template, {
+  finalTemplate = await format(finalTemplate, {
     ...formatOptions,
     parser: 'html',
     plugins: [parserHtml],
@@ -125,21 +125,19 @@ export const useCodeBlockPreview = async (src: string) => {
   const md = `
 ::code-group
 ${finalScript
-  ? `\`\`\`ts [script]
+  ? `\`\`\`ts [Script]
 ${finalScript.trim()}
 \`\`\`
 `
   : ''}
 ${finalTemplate
-  ? `\`\`\`vue [template]
-<template>
-  ${finalTemplate.trim()}
-</template>
+  ? `\`\`\`vue [Template]
+${finalTemplate.trim()}
 \`\`\`
 `
   : ''}
 ${finalStyle
-  ? `\`\`\`css [style]
+  ? `\`\`\`css [CSS]
 ${finalStyle.trim()}
 \`\`\`
 `

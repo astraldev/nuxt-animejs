@@ -18,40 +18,37 @@ Standardize the creation of documentation samples for Nuxt AnimeJS composables. 
 ## Core Structure
 
 ### 1. Frontmatter
-Standard Docus frontmatter with title, description, and **navigation icon** (`i-ph-file-ts` for composables).
+Standard Docus frontmatter with title, Description, and **navigation icon** (pick a unique semantic icon from Phosphor icons, e.g., `i-ph-lightning` for WAAPI).
 
 ### 2. Type Definition & Arguments
-**CRITICAL**: Extract exact types from `src/runtime/app/utils/normalize-targets.ts` (e.g., `AnimeTargets`, `WaapiTargets`) to ensure accuracy. Do not use loose types like `Object` or `Array`.
-Use `::field-group` and `::field` components for arguments documentation.
+**Type Definition**: Include **ONLY** the function signature at the top.
+**Arguments**: Use `::field-group` and `::field` components. Use specific types extracted from `src/runtime/app/utils/normalize-targets.ts` (e.g., `AnimeTargets`, `WaapiTargets`) to ensure accuracy.
 
 ### 3. Usage Section
-Must include `::code-group`:
-- `ts` block with `[script]` filename/modifier showing setup.
-- `vue` block with `[template]` filename/modifier showing the DOM structure.
-- Clear, single example focusing on the primary use case.
+Use `::render-code-block-preview` component pointing to a demo component in `examples/composables/`.
+```markdown
+::render-code-block-preview{src="examples/composables/MyDemo.vue"}
+::
+```
 
 ### 4. Return Value
-Detailed list of properties and methods returned by the composable.
+- Describe the returned object (e.g., "Returns a `ProxyReturns<Draggable>` object").
+- **Property Table**: ONLY include a markdown table if the output value is **NOT** returned by `createProxy`, `reactive`, or `ref`.
+- **Caution**: If using `ProxyReturns`, add a `::caution` block about properties being `undefined` until initialization.
+
+### 5. API Section
+Add an `## API` section with a `### Types` sub-section at the bottom of the file. This is where all detailed type aliases and helper types should live.
 
 ## Workflow
 
 1.  **Analyze Source**: Read the composable source file to determine input types and return structure.
 2.  **Determine Targets**: Check `normalize-targets.ts` for accepted target types.
 3.  **Draft Content**:
-    - **Frontmatter**: Include `icon: i-ph-file-ts`.
-    - **Type Definition**: TypeScript signature with mapped types.
-    - **Usage**:
-        ```markdown
-        ::code-group
-        \`\`\`ts [script]
-        // script content
-        \`\`\`
-        \`\`\`vue [template]
-        <!-- template content -->
-        \`\`\`
-        ::
-        ```
-    - **Return Value**: List of refs/methods.
+    - **Frontmatter**: Include semantic `icon`.
+    - **Type Definition**: Function signature only.
+    - **Usage**: reference a demo component.
+    - **Return Value**: Summary of return type + optional caution.
+    - **API**: Detailed types at the bottom.
 4.  **Review**: Ensure no generic types (like `Object`) are used where specific types exist.
 
 ## Examples
@@ -65,7 +62,7 @@ Detailed list of properties and methods returned by the composable.
 title: useMyAnimation
 description: Documentation for useMyAnimation.
 navigation:
-  icon: i-ph-file-ts
+  icon: i-ph-star
 ---
 
 # useMyAnimation
@@ -75,8 +72,6 @@ Brief description.
 ## Type Definition
 
 \`\`\`ts
-type MyAnimationTargets = ... // from normalize-targets.ts
-
 function useMyAnimation(target: MyAnimationTargets, options: Options): ReturnType
 \`\`\`
 
@@ -93,18 +88,19 @@ function useMyAnimation(target: MyAnimationTargets, options: Options): ReturnTyp
 
 ## Usage
 
-::code-group
-\`\`\`ts [script]
-const { play } = useMyAnimation('.box', { duration: 1000 })
-\`\`\`
-
-\`\`\`vue [template]
-<template>
-  <div class="box" />
-</template>
-\`\`\`
+::render-code-block-preview{src="examples/composables/MyAnimationDemo.vue"}
 ::
 
 ## Return Value
-- **play()**: method description.
+
+Returns a `ReturnType` object.
+
+## API
+
+### Types
+
+\`\`\`ts
+type MyAnimationTargets = ... // from normalize-targets.ts
+type Options = ...
+\`\`\`
 ```

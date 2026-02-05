@@ -6,3 +6,15 @@ navigation:
 ---
 
 Additional utilities exposed by `nanime`
+
+::u-page-grid
+  :::u-page-card{to="/misc/easings" icon="i-ph-chart-line" title="Easings"}
+  #description
+  Documentation for available easings.
+  :::
+
+  :::u-page-card{to="/misc/utils" icon="i-ph-wrench" title="Utils"}
+  #description
+  Guide on how to utilize exposed animejs utils.
+  :::
+::

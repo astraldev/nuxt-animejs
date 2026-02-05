@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useIntervalFn } from '@vueuse/core'
 import { round } from '#nanime/utils'
+
 import ExampleWrapper from '~/components/shared/ExampleWrapper.vue'
 
 const counter = reactive({ x: 0 })
@@ -18,6 +19,8 @@ useIntervalFn(() => {
 
 <template>
   <ExampleWrapper class="text-center font-mono">
-    Counter: {{ JSON.stringify(counter) }}
+    <p>
+      Counter: {{ JSON.stringify(counter) }}
+    </p>
   </ExampleWrapper>
 </template>

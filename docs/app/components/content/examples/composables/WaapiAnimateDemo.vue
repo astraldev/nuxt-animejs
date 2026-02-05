@@ -22,7 +22,7 @@ useWaapiAnimate('.square', {
       <div
         v-for="i in 6"
         :key="i"
-        class="simple-box square"
+        class="simple-box square w-8"
       />
     </div>
   </ExampleWrapper>

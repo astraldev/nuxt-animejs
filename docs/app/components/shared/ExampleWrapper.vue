@@ -8,6 +8,19 @@
 @reference "~/assets/css/main.css";
 
 .simple-box {
-  @apply size-8 rounded-md bg-primary grid place-items-center font-semibold;
+  @apply rounded-md h-8 bg-primary grid place-items-center font-semibold;
+}
+
+.spot {
+  @apply py-1 w-12 px-1.5 z-10 grid place-items-center text-white;
+  @apply border border-dashed border-primary/35 rounded font-bold font-mono;
+
+  background-image: repeating-linear-gradient(
+    45deg,
+    color-mix(in hsl, var(--color-primary), transparent 80%) 0,
+    color-mix(in hsl, var(--color-primary), transparent 80%) 1px,
+    transparent 1px,
+    transparent 6px
+  );
 }
 </style>

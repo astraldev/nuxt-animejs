@@ -22,7 +22,7 @@ useAnimate(items, {
         v-for="i in 9"
         :key="i"
         ref="items"
-        class="simple-box opacity-0"
+        class="simple-box opacity-0 w-8"
       />
     </div>
   </ExampleWrapper>

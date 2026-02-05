@@ -83,7 +83,7 @@ importers:
         version: 5.5.0(419c58ccd45d847ff557bde31a280e4f)
       nanime:
         specifier: latest
-        version: 0.0.3(typescript@5.9.3)
+        version: 0.0.4(typescript@5.9.3)
       nuxt:
         specifier: ^4.3.0
         version: 4.3.0(@parcel/watcher@2.5.6)(@types/node@25.2.0)(@vue/compiler-sfc@3.5.27)(better-sqlite3@12.6.2)(cac@6.7.14)(db0@0.3.4(better-sqlite3@12.6.2))(eslint@9.39.2(jiti@2.6.1))(ioredis@5.9.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.57.1)(terser@5.46.0)(typescript@5.9.3)(vite@7.3.1(@types/node@25.2.0)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(yaml@2.8.2))(vue-tsc@3.2.4(typescript@5.9.3))(yaml@2.8.2)
@@ -5406,8 +5406,8 @@ packages:
   muggle-string@0.4.1:
     resolution: {integrity: sha512-VNTrAak/KhO2i8dqqnqnAHOa3cYBwXEZe9h+D5h/1ZqFSTEFHdM65lR7RoIqq3tBBYavsOXV84NoHXZ0AkPyqQ==}
 
-  nanime@0.0.3:
-    resolution: {integrity: sha512-rRe0CEKo06iR2RnmxYhofw2RmrGN3OcU+95X4wE+4SZDFNgIDTV3Ww1Sx5ETpB+mWmykwtK8LT8f3Gx6xJ5ePA==}
+  nanime@0.0.4:
+    resolution: {integrity: sha512-yXmc1VfktyC+yCiVWCLFZ7mT+urXse/4q/q7fOFbk7i52dNmCaMNXTYiF0+eIcDYnCxCLaUZSkUzNMBRjG06aA==}
 
   nanoid@3.3.11:
     resolution: {integrity: sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==}
@@ -13378,7 +13378,7 @@ snapshots:
 
   muggle-string@0.4.1: {}
 
-  nanime@0.0.3(typescript@5.9.3):
+  nanime@0.0.4(typescript@5.9.3):
     dependencies:
       '@vueuse/core': 14.2.0(vue@3.5.27(typescript@5.9.3))
       animejs: 4.3.5
